@@ -1,0 +1,21 @@
+<div class="container">
+  <form (ngSubmit)="deleteCompany()" [formGroup]="deleteCompanyFormProfile">
+    <h2>Delete Company </h2>
+    <p class="message" *ngIf="serverMessage">{{ serverMessage }}</p>
+    <span class="errors" *ngIf="this.controls.company.hasError('pattern')" >
+      Required field
+    </span>
+    <select (change)="setSelectCompany($event.target.value)" formControlName="company" class="option">
+      <option>Choose Company</option>
+      <option
+        *ngFor="let company of allCompanies"
+      >
+      {{ company.name }}
+      </option>
+    </select>
+    <br/>
+    <button [disabled]="deleteCompanyFormProfile.invalid || this.controls.company.pristine" type="submit">Delete</button>
+  </form>
+
+
+</div>

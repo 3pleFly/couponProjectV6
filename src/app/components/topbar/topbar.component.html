@@ -1,0 +1,28 @@
+<div class="container">
+  <ul>
+    <h1 [routerLink]="['/home']">Coupon ~Project</h1>
+    <li><a [routerLink]="['/home']">Home</a></li>
+    <li *ngIf="!loggedUser"><a [routerLink]="['/login']">Login</a></li>
+    <li *ngIf="loggedUser">
+      <a [routerLink]="['/login']">Welcome {{ loggedUser }} </a>
+    </li>
+    <li *ngIf="loggedUser"><a (click)="signOut()">Signout</a></li>
+    <li *ngIf="userMessage" class="bye">Bye bye!</li>
+  </ul>
+  <div class="menu">
+    <button>Menu</button>
+    <ul>
+      <li><a [routerLink]="['/home']">Home</a></li>
+
+      <li *ngIf="!loggedUser"><a [routerLink]="['/login']">Login</a></li>
+
+      <li *ngIf="loggedUser">
+        <a [routerLink]="['/login']">Welcome {{ loggedUser }} </a>
+      </li>
+
+      <li *ngIf="loggedUser"><a (click)="signOut()">Signout</a></li>
+      <li *ngIf="userMessage" class="bye">Bye bye!</li>
+    </ul>
+    <h1 [routerLink]="['/home']">Coupon ~Project</h1>
+  </div>
+</div>

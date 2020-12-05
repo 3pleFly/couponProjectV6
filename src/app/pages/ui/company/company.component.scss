@@ -1,0 +1,44 @@
+.container {
+  color: #a1a1a1;
+  display: flex;
+  justify-content: center;
+  padding: 2%;
+
+
+  .ui {
+    background: rgba(0, 0, 0, 0.8);
+    -webkit-box-shadow: 0px 0px 29px -2px #000000;
+    box-shadow: 0px 0px 29px -7px #000000;
+    border-radius: 10px;
+    width: 90%;
+
+    .nav {
+      padding: 2%;
+      width: 100%;
+      text-align: center;
+      ul {
+        padding: 1%;
+        display: flex;
+        justify-content: space-around;
+        li {
+          cursor: pointer;
+          border-bottom: 1px solid #ff3b3f;
+          // font-size: 1.5vw;
+          padding: 2%;
+          transition: 0.25s all ease-in-out;
+          &:hover {
+            border-radius: 10px;
+            color: #ff3b3f;
+            a {
+              color: #ff3b3f;
+            }
+          }
+
+          a {
+            color: #a1a1a1;
+          }
+        }
+      }
+    }
+  }
+}

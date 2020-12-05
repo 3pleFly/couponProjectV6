@@ -1,0 +1,24 @@
+<div class="container">
+  <form (ngSubmit)="addCategory()" [formGroup]="addCategoryFormProfile">
+    <h2>New Category</h2>
+    <p class="message" *ngIf="serverMessage">{{ serverMessage }}</p>
+    <span
+      class="errors"
+      *ngIf="controls.category.touched && controls.category.invalid"
+    >
+      <span *ngIf="controls.category.hasError('required')"> Required field </span>
+    </span>
+
+    <input
+      type="text"
+      name="category"
+      formControlName="category"
+      placeholder="Insert category name"
+    />
+    <br />
+    <button [disabled]="!addCategoryFormProfile.valid" type="submit">
+      Add category
+    </button>
+  </form>
+
+</div>

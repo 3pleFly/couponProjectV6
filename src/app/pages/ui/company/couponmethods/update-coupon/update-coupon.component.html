@@ -1,0 +1,80 @@
+<div class="container">
+  <form (ngSubmit)="editCoupon()" [formGroup]="editCouponFormProfile">
+    <h2>Edit</h2>
+    <p class="message" *ngIf="serverMessage">{{ serverMessage }}</p>
+
+    <select
+      (change)="setCouponInputDetails($event.target.value)"
+      class="option"
+    >
+    <option>Choose Coupon</option>
+    <option *ngFor="let coupon of allCoupons">
+        {{ coupon.title }}
+      </option>
+    </select>
+    <select
+      (change)="setCategory($event.target.value)"
+      *ngIf="selectedCoupon"
+      formControlName="categoryName"
+      class="option"
+    >
+      <option>Choose Category</option>
+      <option *ngFor="let category of allCategories">
+        {{ category.category }}
+      </option>
+    </select>
+    <input
+      *ngIf="selectedCoupon"
+      type="text"
+      name="title"
+      formControlName="title"
+      placeholder="Insert title"
+    />
+    <input
+      *ngIf="selectedCoupon"
+      type="text"
+      name="description"
+      formControlName="description"
+      placeholder="Insert description"
+    />
+    <input
+      *ngIf="selectedCoupon"
+      type="date"
+      name="startDate"
+      formControlName="startDate"
+    />
+    <input
+      *ngIf="selectedCoupon"
+      type="date"
+      name="endDate"
+      formControlName="endDate"
+    />
+    <input
+      *ngIf="selectedCoupon"
+      type="number"
+      name="amount"
+      formControlName="amount"
+      placeholder="Insert amount"
+    />
+    <span class="errors" *ngIf="controls.price.touched && controls.price.invalid">
+      <span *ngIf="controls.price.hasError('required')"> Required field </span>
+    </span>
+    <input
+      *ngIf="selectedCoupon"
+      type="number"
+      name="price"
+      formControlName="price"
+      placeholder="Insert price"
+    />
+    <input
+      *ngIf="selectedCoupon"
+      type="text"
+      name="image"
+      formControlName="image"
+      placeholder="Insert image URL"
+    />
+    <br />
+    <button [disabled]="editCouponFormProfile.invalid || this.controls.categoryName.pristine " type="submit">Submit</button>
+  </form>
+
+</div>

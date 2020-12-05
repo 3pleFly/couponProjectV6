@@ -1,0 +1,13 @@
+<app-topbar></app-topbar>
+<div class="container">
+  <div class="ui">
+    <div *ngIf="company" class="nav">
+      <ul  >
+        <li>Welcome {{company.name}}</li>
+      </ul>
+      Number of coupons: {{company.coupons.length}}
+    </div>
+    <router-outlet></router-outlet>
+  </div>
+</div>
+<app-footer></app-footer>

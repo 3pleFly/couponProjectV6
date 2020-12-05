@@ -1,0 +1,26 @@
+<div class="container">
+  <form (ngSubmit)="purchaseCoupon()" [formGroup]="purchaseCouponFormProfile">
+    <h2>All Available Coupons</h2>
+    <p class="message" *ngIf="serverMessage">{{ serverMessage }}</p>
+    <select
+      (change)="setCoupon($event.target.value)"
+      formControlName="couponTitle"
+      class="option"
+    >
+      <option>Choose Coupon</option>
+      <option *ngFor="let coupon of allCoupons">
+        {{ coupon.title }}
+      </option>
+    </select>
+    <br />
+    <button
+      [disabled]="
+        this.controls.couponTitle.hasError('pattern') ||
+        this.controls.couponTitle.pristine
+      "
+      type="submit"
+    >
+      Purchase
+    </button>
+  </form>
+</div>

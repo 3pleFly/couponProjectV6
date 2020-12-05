@@ -1,0 +1,65 @@
+<div class="container">
+
+  <form (ngSubmit)="addCompany()" [formGroup]="addCompanyFormProfile">
+    <h2>New Company</h2>
+    <p class="message" *ngIf="serverMessage">{{ serverMessage }}</p>
+    <span class="errors" *ngIf="controls.name.touched && controls.name.invalid">
+      <span *ngIf="controls.name.hasError('required')">
+        Required field
+      </span>
+      <span *ngIf="controls.name.hasError('maxlength')">
+        Exceeding character limit(30)
+      </span>
+    </span>
+    <input
+      type="text"
+      name="name"
+      formControlName="name"
+      placeholder="Insert name"
+    />
+
+    <span class="errors" *ngIf="controls.email.touched && controls.email.invalid">
+      <span *ngIf="controls.email.hasError('required')"> Please enter field </span>
+      <span *ngIf="controls.email.hasError('maxlength')">
+        Exceeding character limit(200)
+      </span>
+      <span *ngIf="controls.email.hasError('pattern')">
+        Please enter a valid email format
+      </span>
+    </span>
+
+    <input
+      type="text"
+      name="email"
+      formControlName="email"
+      placeholder="Insert email"
+    />
+
+
+    <span class="errors" *ngIf="controls.password.touched && controls.password.invalid">
+      <span *ngIf="controls.password.hasError('required')">
+        Required field
+      </span>
+      <span *ngIf="controls.password.hasError('minlength')">
+        Required atleast 8 characters
+      </span>
+      <span *ngIf="controls.password.hasError('maxlength')">
+        Exceeding character limit(200)
+      </span>
+    </span>
+
+    <input
+      type="password"
+      name="password"
+      formControlName="password"
+      placeholder="Insert password"
+    />
+
+
+    <br />
+    <button [disabled]="!addCompanyFormProfile.valid" type="submit">
+      Add
+    </button>
+  </form>
+
+</div>

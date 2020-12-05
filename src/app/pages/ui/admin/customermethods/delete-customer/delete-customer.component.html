@@ -1,0 +1,23 @@
+<div class="container">
+
+  <form (ngSubmit)="deleteCustomer()" [formGroup]="deleteCustomerFormProfile">
+    <h2>Delete</h2>
+    <p class="message" *ngIf="serverMessage">{{ serverMessage }}</p>
+    <span class="errors" *ngIf="this.controls.customer.hasError('pattern')" >
+      Required field
+    </span>
+    <select
+      (change)="setSelectedCustomer($event.target.value)"
+      formControlName="customer"
+      class="option"
+    >
+      <option>Choose Customer</option>
+      <option *ngFor="let customer of allCustomers">
+        {{ customer.firstName + ' ' + customer.lastName }}
+      </option>
+    </select>
+    <br />
+    <button [disabled]="deleteCustomerFormProfile.invalid || this.controls.customer.pristine" type="submit">Delete</button>
+  </form>
+
+</div>

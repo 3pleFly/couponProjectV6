@@ -1,0 +1,59 @@
+.container {
+
+  // background: linear-gradient( rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.4) ), url('../../../assets/surf.jpg');
+
+  // background-size: cover;
+  height: 93vh;
+  .login {
+    height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    form {
+      border-radius: 25px;
+      padding: 2%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      -webkit-box-shadow: 0px 0px 29px -2px #000000;
+      box-shadow: 0px 0px 29px -2px #000000;
+      h2 {
+        // font-size: 3vw;
+        text-align: center;
+        margin-bottom: 15%;
+        border-bottom: 3px solid #ff3b3f;
+        padding: 1.5vw;
+      }
+
+      input {
+        background: none;
+        border: none;
+        border-bottom: 3px solid #888888;
+        border-radius: 55px;
+        padding: 2vw;
+        margin: 2%;
+        transition: 0.25s all ease-in-out;
+        &:focus {
+          border-bottom: 3px solid #ff3b3f;
+        }
+      }
+
+      input[placeholder] {
+
+        &:focus {
+          color:  #ff3b3f;
+        }
+      }
+
+      button {
+        color: white;
+        background: #ff3b3f;
+        margin-top: 10%;
+        padding: 1vw;
+        border: none;
+        font-weight: 800;
+      }
+    }
+  }
+}

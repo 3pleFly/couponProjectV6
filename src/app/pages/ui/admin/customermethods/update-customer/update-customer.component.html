@@ -1,0 +1,97 @@
+<div class="container">
+  <form (ngSubmit)="editCustomer()" [formGroup]="editCustomerFormProfile">
+    <h2>Edit</h2>
+    <p class="message" *ngIf="serverMessage">{{ serverMessage }}</p>
+
+    <select
+      (change)="setCustomerInputDetails($event.target.value)"
+      class="option"
+    >
+      <option>Choose Customer</option>
+
+      <option *ngFor="let customer of allCustomers">
+        {{ customer.firstName + " " + customer.lastName }}
+      </option>
+    </select>
+    <span
+    class="errors"
+    *ngIf="controls.firstName.touched && controls.firstName.invalid"
+  >
+    <span *ngIf="controls.firstName.hasError('required')">
+      Please enter field
+    </span>
+    <span *ngIf="controls.firstName.hasError('maxlength')">
+      Exceeding character limit(30)
+    </span>
+  </span>
+
+    <input
+      *ngIf="selectedCustomer"
+      type="text"
+      name="firstName"
+      formControlName="firstName"
+      placeholder="Insert first-name"
+    />
+    <span
+      class="errors"
+      *ngIf="controls.lastName.touched && controls.lastName.invalid"
+    >
+      <span *ngIf="controls.lastName.hasError('required')">
+        Please enter field
+      </span>
+      <span *ngIf="controls.lastName.hasError('maxlength')">
+        Exceeding character limit(30)
+      </span>
+    </span>
+    <input
+      *ngIf="selectedCustomer"
+      type="text"
+      name="lastName"
+      formControlName="lastName"
+      placeholder="Insert last-name"
+    />
+    <span class="errors" *ngIf="controls.email.touched && controls.email.invalid">
+      <span *ngIf="controls.email.hasError('required')">
+        Please enter field
+      </span>
+      <span *ngIf="controls.email.hasError('maxlength')">
+        Exceeding character limit(200)
+      </span>
+      <span *ngIf="controls.email.hasError('pattern')">
+        Please enter a valid email format
+      </span>
+    </span>
+    <input
+      *ngIf="selectedCustomer"
+      type="text"
+      name="email"
+      formControlName="email"
+      placeholder="Insert email"
+    />
+    <span
+    class="errors"
+    *ngIf="controls.password.touched && controls.password.invalid"
+  >
+    <span *ngIf="controls.password.hasError('required')"> Required field </span>
+    <span *ngIf="controls.password.hasError('minlength')">
+      Required atleast 8 characters
+    </span>
+    <span *ngIf="controls.password.hasError('maxlength')">
+      Exceeding character limit(200)
+    </span>
+  </span>
+
+    <input
+      *ngIf="selectedCustomer"
+      type="password"
+      name="password"
+      formControlName="password"
+      placeholder="Insert password"
+    />
+    <br />
+    <button [disabled]="!editCustomerFormProfile.valid" type="submit">
+      Submit Changes
+    </button>
+  </form>
+
+</div>

@@ -1,0 +1,32 @@
+<div class="container">
+
+  <div class="buttons">
+    <ul>
+      <li><a [routerLink]="['add']">Add</a></li>
+      <li><a [routerLink]="['update']">Update</a></li>
+      <li><a [routerLink]="['delete']">Delete</a></li>
+    </ul>
+  </div>
+
+  <router-outlet></router-outlet>
+  <div class="search">
+    <input #searchInput type="number" placeholder="Search by ID">
+    <button (click)="searchCustomer(searchInput)" >Submit</button>
+  </div>
+  <div class="search-result">
+    <div class="customer" *ngIf="searchedCustomer"  >
+      <span style="font-weight: 800;">First Name: </span> <span>{{searchedCustomer.firstName}}</span><br/>
+      <span style="font-weight: 800;">Last Name: </span> <span>{{searchedCustomer.lastName}}</span><br/>
+      <span style="font-weight: 800;">Email: </span> <span>{{searchedCustomer.email}}</span><br/>
+      <span style="font-weight: 800;">Coupons: </span> <span>{{searchedCustomer.coupons.length}}</span><br/>
+      <button (click)="clear()" >Clear</button>
+    </div>
+    <div class="customers" *ngIf="allCustomers" >
+      <div class="customer" *ngFor="let customer of allCustomers" >
+        <span style="font-weight: 800;">First Name: </span> <span>{{customer.firstName}}</span><br/>
+        <span style="font-weight: 800;">Last Name: </span> <span>{{customer.lastName}}</span><br/>
+        <span style="font-weight: 800;">Email: </span> <span>{{customer.email}}</span><br/>
+        <span style="font-weight: 800;">Coupons: </span> <span>{{customer.coupons.length}}</span><br/>
+      </div>
+    </div>
+  </div>

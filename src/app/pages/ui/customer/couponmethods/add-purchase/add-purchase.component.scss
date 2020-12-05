@@ -1,0 +1,36 @@
+.container {
+  display: flex;
+  justify-content: center;
+
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1%;
+
+    h2 {
+      margin-bottom: 5%;
+    }
+
+    input {
+      padding: 3%;
+      margin: 5%;
+      background: rgba(255, 255, 255, 0.05);
+      border: none;
+      border-bottom: 3px solid #696969;
+      color:  #ff3b3f;
+      transition: 0.25s all ease-in-out;
+      &:focus {
+        border-bottom: 3px solid #ff3b3f;
+      }
+    }
+
+    button {
+      color: black;
+      padding: 3%;
+      border: none;
+      width: 100%;
+      background: #bb2b2d;;
+    }
+  }
+}

@@ -1,0 +1,135 @@
+.container {
+  background: rgba(0, 0, 0, 0.5);
+
+  .coupons {
+    padding: 2.5%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+
+    .coupon {
+      overflow: hidden;
+      background: #ffffff09;
+      padding: 3%;
+      border-radius: 25px;
+      margin: 5%;
+      border-left: 1px solid #ff3b3f;
+      border-right: 1px solid #ff3b3f;
+      transition: 0.25s all ease-in-out;
+      &:active {
+        background: #ffffff15;
+        overflow: visible;
+      }
+      &:hover {
+        background: #ffffff15;
+        overflow: scroll;
+      }
+    }
+  }
+}
+
+.buttons {
+  ul {
+    padding: 2%;
+    display: flex;
+    justify-content: space-evenly;
+
+    li {
+      cursor: pointer;
+      padding: 1%;
+      border-bottom: 1px solid #a1a1a1;
+      transition: 0.25s all ease-in-out;
+      &:hover {
+        border-bottom: 1px solid #ff3b3f;
+        border-radius: 5px;
+        a {
+          color: #ff3b3f;
+        }
+      }
+
+      a {
+        color: #a1a1a1;
+      }
+    }
+  }
+}
+
+.option {
+  background: #ffffff09;
+  color: #a1a1a1;
+  border-radius: 5px;
+
+  &:focus {
+    border: 1px solid #ff3b3f;
+  }
+}
+button {
+  color: black;
+  padding: 1%;
+  border: none;
+  border-radius: 5px;
+  background: #bb2b2d;
+}
+
+.filters {
+  display: flex;
+  justify-content: space-around;
+  margin: 2%;
+  li {
+    input {
+      padding: 3%;
+    }
+    button {
+      margin: 1%;
+      width: 100%;
+    }
+  }
+
+}
+
+@media screen and (max-width: 1000px) {
+  .container {
+    .coupons {
+      padding: 0;
+      .coupon {
+        width: 90%;
+        margin: 2% 0;
+        span {
+          font-size: 1.5vw;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .container {
+    .coupons {
+      display: block;
+      .coupon {
+        span {
+          font-size: 3.5vw;
+        }
+      }
+    }
+  }
+
+  .filters {
+    display: block;
+    text-align: center;
+    li {
+      input {
+        width: 50%;
+      }
+      button {
+        width: 35%;
+      }
+    }
+  }
+
+  .buttons {
+    ul {
+      padding: 0.5%;
+      display: block;
+    }
+  }
+}

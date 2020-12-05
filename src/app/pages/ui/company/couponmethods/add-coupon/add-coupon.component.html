@@ -1,0 +1,98 @@
+<div class="container">
+  <form (ngSubmit)="addCoupon()" [formGroup]="addCouponFormProfile">
+    <h2>Add</h2>
+    <p class="message" *ngIf="serverMessage">{{ serverMessage }}</p>
+
+    <span
+      class="errors"
+      *ngIf="controls.categoryName.touched && controls.categoryName.invalid"
+    >
+      <span *ngIf="controls.categoryName.hasError('pattern')">
+        Please choose a category
+      </span>
+    </span>
+
+    <select
+      (change)="setCategory($event.target.value)"
+      *ngIf="allCategories"
+      formControlName="categoryName"
+      class="option"
+    >
+      <option>Choose Category</option>
+      <option *ngFor="let category of allCategories">
+        {{ category.category }}
+      </option>
+    </select>
+    <span class="errors" *ngIf="controls.title.touched && controls.title.invalid">
+      <span *ngIf="controls.title.hasError('maxlength')">
+        Exceeding character limit(30)
+      </span>
+      <span *ngIf="controls.title.hasError('required')"> Required field </span>
+    </span>
+    <input
+      type="text"
+      name="title"
+      formControlName="title"
+      placeholder="Insert title"
+    />
+    <span class="errors" *ngIf="controls.description.touched && controls.description.invalid">
+      <span *ngIf="controls.description.hasError('maxlength')">
+        Exceeding character limit(100)
+      </span>
+    </span>
+    <input
+      type="text"
+      name="description"
+      formControlName="description"
+      placeholder="Insert description"
+    />
+    <span
+      class="errors"
+      *ngIf="controls.startDate.touched && controls.startDate.invalid"
+    >
+      <span *ngIf="controls.startDate.hasError('required')">
+        Required field
+      </span>
+    </span>
+    <input type="date" name="startDate" formControlName="startDate" />
+    <span
+      class="errors"
+      *ngIf="controls.endDate.touched && controls.endDate.invalid"
+    >
+      <span *ngIf="controls.endDate.hasError('required')"> Required field </span>
+    </span>
+    <input type="date" name="endDate" formControlName="endDate" />
+    <span
+      class="errors"
+      *ngIf="controls.amount.touched && controls.amount.invalid"
+    >
+      <span *ngIf="controls.amount.hasError('required')"> Required field </span>
+    </span>
+    <input
+      type="number"
+      name="amount"
+      formControlName="amount"
+      placeholder="Insert amount"
+    />
+    <span class="errors" *ngIf="controls.price.touched && controls.price.invalid">
+      <span *ngIf="controls.price.hasError('required')"> Required field </span>
+    </span>
+    <input
+      type="number"
+      name="price"
+      formControlName="price"
+      placeholder="Insert price"
+    />
+    <input
+      type="text"
+      name="image"
+      formControlName="image"
+      placeholder="Insert image URL"
+    />
+    <br />
+    <button [disabled]="!addCouponFormProfile.valid || this.controls.categoryName.pristine" type="submit">
+      Add coupon
+    </button>
+  </form>
+
+</div>

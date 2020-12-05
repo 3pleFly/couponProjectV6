@@ -1,0 +1,67 @@
+<div class="container">
+  <form (ngSubmit)="editCompany()" [formGroup]="updateCompanyFormProfile">
+    <h2>Update Company</h2>
+    <p class="message" *ngIf="serverMessage">{{ serverMessage }}</p>
+
+    <select
+      (change)="setCompanyInputDetails($event.target.value)"
+      class="option"
+    >
+      <option>Choose Company</option>
+      <option *ngFor="let company of allCompanies">
+        {{ company.name }}
+      </option>
+    </select>
+
+    <br />
+    <span
+      class="errors"
+      *ngIf="controls.email.touched && controls.email.invalid"
+    >
+      <span *ngIf="controls.email.hasError('required')">
+        Please enter field
+      </span>
+      <span *ngIf="controls.email.hasError('maxlength')">
+        Exceeding character limit(200)
+      </span>
+      <span *ngIf="controls.email.hasError('pattern')">
+        Please enter a valid email format
+      </span>
+    </span>
+
+    <input
+      *ngIf="selectedCompany"
+      type="text"
+      name="email"
+      formControlName="email"
+      placeholder="Insert email"
+    />
+
+    <span
+      class="errors"
+      *ngIf="controls.password.touched && controls.password.invalid"
+    >
+      <span *ngIf="controls.password.hasError('required')">
+        Required field
+      </span>
+      <span *ngIf="controls.password.hasError('minlength')">
+        Required atleast 8 characters
+      </span>
+      <span *ngIf="controls.password.hasError('maxlength')">
+        Exceeding character limit(200)
+      </span>
+    </span>
+
+    <input
+      *ngIf="selectedCompany"
+      type="password"
+      name="password"
+      formControlName="password"
+      placeholder="Insert password"
+    />
+    <br />
+    <button [disabled]="!updateCompanyFormProfile.valid" type="submit">
+      Submit
+    </button>
+  </form>
+</div>

@@ -1,0 +1,50 @@
+<div class="container">
+  <h1>Our Sweet Coupons</h1>
+  <p *ngIf="message" class="errors">{{ message }}</p>
+
+  <div class="grid">
+    <div
+      class="element"
+      *ngFor="let coupon of displayedCoupons"
+      (click)="featureCoupon(coupon)"
+    >
+      <p>{{ coupon.title }}</p>
+      <div class="image" style="background-image: url( {{coupon.image}} )">
+        <p>Expiry: {{ coupon.endDate | date }}</p>
+        <p>Available: {{ coupon.amount }}</p>
+        <p>Price: {{ coupon.price }}</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="featured" *ngIf="featuredCoupon">
+    <div class="buttons">
+      <button class="back-button" (click)="backToDisplay()">Go back</button>
+      <button class="purchase-button" (click)="purchaseCoupon()">
+        Purchase Coupon
+      </button>
+    </div>
+    <br />
+    <img src="{{ featuredCoupon.image }}" alt="coupon image" />
+    <div class="info">
+      <span style="font-weight: 800">Title: </span>
+      <span>{{ featuredCoupon.title }}</span
+      ><br />
+      <span style="font-weight: 800">Description: </span>
+      <span>{{ featuredCoupon.description }}</span
+      ><br />
+      <span style="font-weight: 800">Start-Date: </span>
+      <span>{{ featuredCoupon.startDate }}</span
+      ><br />
+      <span style="font-weight: 800">End-Date: </span>
+      <span>{{ featuredCoupon.endDate }}</span
+      ><br />
+      <span style="font-weight: 800">Amount: </span>
+      <span>{{ featuredCoupon.amount }}</span
+      ><br />
+      <span style="font-weight: 800">Price: </span>
+      <span>{{ featuredCoupon.price }}</span
+      ><br />
+    </div>
+  </div>
+</div>

@@ -1,0 +1,59 @@
+<div class="container">
+  <div class="buttons">
+    <ul>
+      <li><a [routerLink]="['/customer']">View</a></li>
+      <li><a [routerLink]="['purchase']">Purchase Coupon</a></li>
+      <li><a [routerLink]="['remove']">Remove Purchase</a></li>
+    </ul>
+    <p class="errors" *ngIf="userMessage">{{ userMessage }}</p>
+  </div>
+  <router-outlet></router-outlet>
+  <ul class="filters">
+    <select class="option" (change)="filterByCategory($event.target.value)">
+      <option>Choose Category</option>
+      <option *ngFor="let category of allCategories">
+        {{ category.category }}
+      </option>
+    </select>
+    <li>
+      <input
+        #price
+        class="option"
+        style="border: none; border-bottom: 2px solid #a1a1a1"
+        type="number"
+        placeholder="Enter maximum price"
+      /> <br/>
+      <button (click)="filterByPrice(price)">filter</button> <br/>
+      <button (click)="removeFilter()">remove filter</button>
+    </li>
+  </ul>
+  <div class="coupons" *ngIf="allCoupons">
+    <div class="coupon" *ngFor="let coupon of displayedCoupons">
+      <span style="font-weight: 800">Title: </span>
+      <span>{{ coupon.title }}</span
+      ><br />
+      <span style="font-weight: 800">Description: </span>
+      <span>{{ coupon.description }}</span
+      ><br />
+      <span style="font-weight: 800">Category: </span>
+      <span>{{ coupon.categoryName }}</span
+      ><br />
+      <span style="font-weight: 800">Start-Date: </span>
+      <span>{{ coupon.startDate }}</span
+      ><br />
+      <span style="font-weight: 800">End-Date: </span>
+      <span>{{ coupon.endDate }}</span
+      ><br />
+      <span style="font-weight: 800">ImageURL: </span>
+      <span>{{ coupon.image }}</span
+      ><br />
+      <span style="font-weight: 800">Amount: </span>
+      <span>{{ coupon.amount }}</span
+      ><br />
+      <span style="font-weight: 800">Price: </span>
+      <span>{{ coupon.price }}</span
+      ><br />
+
+    </div>
+  </div>
+</div>

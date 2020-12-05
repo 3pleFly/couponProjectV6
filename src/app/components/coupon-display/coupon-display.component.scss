@@ -1,0 +1,136 @@
+@import url("https://fonts.googleapis.com/css2?family=Scope+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@100&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  h1 {
+    margin: 0.5%;
+    padding: 1%;
+    text-align: left;
+    color: white;
+    font-family: "Libre Franklin", sans-serif;
+    border-bottom: 1px solid white;
+  }
+  .grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 3%;
+    .element {
+      font-family: "Libre Franklin", sans-serif;
+      margin: 2%;
+      cursor: pointer;
+
+      p {
+        visibility: visible;
+        color: black;
+      }
+
+      .image {
+        width: 200px;
+        height: 230px;
+        background-size: cover;
+        background-position: 50% 50%;
+        border-radius: 50px;
+        -webkit-box-shadow: 0px 0px 29px -8px #000000;
+        box-shadow: 0px 0px 29px -8px #000000;
+        p {
+          font-family: "Libre Franklin", sans-serif;
+          color: rgb(226, 226, 226);
+          visibility: hidden;
+          position: relative;
+          top: 50px;
+          transition: 0.15s all ease-in-out;
+        }
+      }
+      transition: 0.25s all ease-in-out;
+
+      &:hover {
+        transform: scale(1.05);
+
+        .image {
+          p {
+            visibility: visible;
+            background: rgba(0, 0, 0, 0.767);
+          }
+        }
+      }
+    }
+  }
+}
+
+.featured {
+  font-family: "Roboto", sans-serif;
+
+  .back-button {
+    background: rgb(116, 116, 116);
+    padding: 1%;
+    margin: 1%;
+    border: none;
+    color: white;
+    transition: 0.25s all ease-in-out;
+    &:hover {
+      background: rgb(99, 99, 99);
+    }
+
+    &:active {
+      transform: scale(0.95);
+    }
+  }
+
+  .purchase-button {
+    background: rgb(50, 133, 201);
+    padding: 1%;
+    margin: 1%;
+    border: none;
+    color: white;
+    transition: 0.25s all ease-in-out;
+    &:hover {
+      background: rgb(66, 153, 224);
+    }
+
+    &:active {
+      transform: scale(1.05);
+    }
+  }
+  img {
+    margin: 2%;
+    float: left;
+    width: 50%;
+    border-radius: 15px;
+  }
+}
+
+.info {
+  padding: 2%;
+  text-align: left;
+  font-size: 1vw;
+}
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .container {
+    h1 {
+      font-size: 9vw;
+    }
+  }
+
+  .grid {
+    display: block;
+  }
+
+  .featured {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .info {
+    padding: 1%;
+    font-size: 3vw;
+
+  }
+}

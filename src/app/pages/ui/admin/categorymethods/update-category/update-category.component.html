@@ -1,0 +1,35 @@
+<div class="container">
+  <form (ngSubmit)="editCategory()" [formGroup]="editCategoryFormProfile">
+    <h2>Update Category</h2>
+    <p class="message" *ngIf="serverMessage">{{ serverMessage }}</p>
+
+    <select
+      (change)="setCategoryInputDetails($event.target.value)"
+      class="option"
+    >
+      <option>Choose Category</option>
+      <option *ngFor="let category of allCategories">
+        {{ category.category }}
+      </option>
+    </select>
+
+    <span
+    class="errors"
+    *ngIf="controls.category.touched && controls.category.invalid"
+  >
+    <span *ngIf="controls.category.hasError('required')"> Required field </span>
+  </span>
+    <input
+      *ngIf="selectedCategory"
+      type="text"
+      name="email"
+      formControlName="category"
+      placeholder="Edit category name"
+    />
+    <br />
+    <button [disabled]="!editCategoryFormProfile.valid" type="submit">
+      Submit changes
+    </button>
+  </form>
+
+</div>

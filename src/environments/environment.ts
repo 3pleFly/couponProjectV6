@@ -6,6 +6,14 @@ export const environment = {
   production: false
 };
 
+export const authorization = 'Authorization';
+export const baseUrl = 'http://localhost:8080';
+export const emailRegEx = '^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$';
+export const notChooseCategoryRegEx = '^((?!Choose Category).)*$';
+export const notChooseCouponRegEx = '^((?!Choose Coupon).)*$';
+export const notChooseCustomerRegEx = '^((?!Choose Customer).)*$';
+export const notChooseCompanyRegEx = '^((?!Choose Company).)*$';
+
 /*
  * For easier debugging in development mode, you can import the following file
  * to ignore zone related error stack frames such as `zone.run`, `zoneDelegate.invokeTask`.

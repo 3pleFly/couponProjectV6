@@ -1,0 +1,120 @@
+.container {
+  background: rgba(0, 0, 0, 0.5);
+
+  .categories {
+    padding: 2.5%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+
+    .category {
+      background: #ffffff09;
+      padding: 3%;
+      border-radius: 25px;
+      margin: 5%;
+      border-left: 1px solid #ff3b3f;
+      border-right: 1px solid #ff3b3f;
+    }
+  }
+}
+
+.buttons {
+  ul {
+    padding: 2%;
+    display: flex;
+    justify-content: space-evenly;
+
+    li {
+      cursor: pointer;
+      padding: 1%;
+      border-bottom: 1px solid #a1a1a1;
+      transition: 0.25s all ease-in-out;
+      &:hover {
+        border-bottom: 1px solid #ff3b3f;
+        border-radius: 5px;
+        a {
+          color: #ff3b3f;
+
+        }
+      }
+
+      a {
+        color: #A1A1A1;
+
+      }
+    }
+  }
+}
+
+.search {
+  margin: 3%;
+  text-align: center;
+
+  input {
+    background: rgba(255, 255, 255, 0.05);
+    border: none;
+    border-bottom: 3px solid #696969;
+    color:  #ff3b3f;
+    transition: 0.25s all ease-in-out;
+    &:focus {
+      border-bottom: 3px solid #ff3b3f;
+    }
+  }
+
+  button {
+    color: black;
+    padding: 0.3%;
+    border: none;
+    background: #bb2b2d;;
+  }
+}
+
+.search-result {
+  text-align: center;
+  button {
+    color: black;
+    padding: 0.3%;
+    border: none;
+    background: #bb2b2d;;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .container {
+    .categories {
+      padding: 0;
+      .category {
+        width: 90%;
+        margin: 2% 0;
+        span {
+          font-size: 1.5vw;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .container {
+    .categories {
+      display: block;
+      .category {
+        span {
+          font-size: 2.5vw;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .container {
+    .categories {
+      display: block;
+      .category {
+        span {
+          font-size: 4vw;
+        }
+      }
+    }
+  }
+}

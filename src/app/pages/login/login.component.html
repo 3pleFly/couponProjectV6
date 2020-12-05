@@ -1,0 +1,39 @@
+<app-topbar></app-topbar>
+<div class="container">
+  <div class="login">
+    <form (ngSubmit)="login()" [formGroup]="loginForm">
+      <h2>Login</h2>
+      <p *ngIf="errorMessage">{{ errorMessage }}</p>
+      <span
+        class="errors"
+        *ngIf="controls.username.touched && controls.username.invalid"
+      >
+        <span *ngIf="controls.username.hasError('required')">
+          Required field</span
+        >
+      </span>
+      <input
+        type="text"
+        name="username"
+        formControlName="username"
+        placeholder="Email*"
+      />
+      <span
+      class="errors"
+      *ngIf="controls.password.touched && controls.password.invalid"
+    >
+      <span *ngIf="controls.password.hasError('required')">
+        Required field</span
+      >
+    </span>
+      <input
+        type="password"
+        name="password"
+        formControlName="password"
+        placeholder="Password*"
+      />
+      <button  [disabled]="!loginForm.valid" type="submit">Enter</button>
+    </form>
+  </div>
+</div>
+<app-footer></app-footer>

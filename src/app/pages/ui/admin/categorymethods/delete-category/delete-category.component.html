@@ -1,0 +1,28 @@
+<div class="container">
+  <form (ngSubmit)="deleteCategory()" [formGroup]="deleteCategoryFormProfile">
+    <h2>Delete Category</h2>
+    <p class="message" *ngIf="serverMessage">{{ serverMessage }}</p>
+    <span class="errors" *ngIf="this.controls.category.hasError('pattern')">
+      Required field
+    </span>
+    <select
+      (change)="setSelectCategory($event.target.value)"
+      formControlName="category"
+      class="option"
+    >
+      <option>Choose Category</option>
+      <option *ngFor="let category of allCategories">
+        {{ category.category }}
+      </option>
+    </select>
+    <br />
+    <button
+      [disabled]="
+        deleteCategoryFormProfile.invalid || this.controls.category.pristine
+      "
+      type="submit"
+    >
+      Delete
+    </button>
+  </form>
+</div>
