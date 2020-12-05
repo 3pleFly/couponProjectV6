@@ -34,12 +34,14 @@ export class ViewCouponsComponent implements OnInit {
   }
 
   filterByPrice(price: HTMLInputElement): void {
-    const maxPrice = parseInt(price.value, 10);
-    this.companyService.getCompanyCouponsByMaxPrice(maxPrice).subscribe(
-      (response) => (this.allCoupons = response.t),
-      (error) => (this.userMessage = error.error.message),
-      () => this.timeOutMessage()
-    );
+    if (price.value) {
+      const maxPrice = parseInt(price.value, 10);
+      this.companyService.getCompanyCouponsByMaxPrice(maxPrice).subscribe(
+        (response) => (this.allCoupons = response.t),
+        (error) => (this.userMessage = error.error.message),
+        () => this.timeOutMessage()
+      );
+    }
   }
 
   filterByCategory(category): void {
