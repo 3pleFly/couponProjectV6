@@ -40,16 +40,30 @@
       flex-direction: column;
       align-items: center;
       border-bottom: 1px solid #a1a1a1;
+    }
 
-      }
-
-      a {
-        cursor: pointer;
-        color: #a1a1a1;
-      }
+    a {
+      cursor: pointer;
+      color: #a1a1a1;
     }
   }
+}
 
+.filters {
+  display: flex;
+  justify-content: space-around;
+  margin: 2%;
+  li {
+    input {
+      padding: 3%;
+      width: 100%;
+    }
+    button {
+      margin: 1%;
+      width: 100%;
+    }
+  }
+}
 
 .option {
   background: #ffffff09;
@@ -70,12 +84,19 @@ button {
 }
 
 @media screen and (max-width: 550px) {
-  .buttons {
-    margin: 10% 0;
-    ul:nth-child(2) {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+  .filters {
+    margin: 2%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    li {
+      input {
+        width: 95%;
+      }
+      button {
+        width: 95%;
+      }
     }
   }
 
@@ -87,7 +108,7 @@ button {
 
       .coupon {
         margin: 1%;
-        font-size: 3vw;
+        // font-size: medium;
       }
     }
   }
@@ -95,29 +116,27 @@ button {
 
 @media screen and (max-width: 300px) {
   .buttons {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
     ul {
       display: flex;
       flex-direction: column;
       align-items: center;
+      width: 100%;
+      li {
+        width: 100%;
+      }
     }
   }
+}
 
-
-  .container {
+.container {
+  display: block;
+  .coupons {
     display: block;
-    .coupons {
-      display: block;
-      padding: 0;
+    padding: 0;
 
-      .coupon {
-        margin: 1%;
-        font-size: 4.5vw;
-
-      }
+    .coupon {
+      margin: 1%;
+      // font-size: small;
     }
   }
 }

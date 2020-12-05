@@ -49,7 +49,6 @@ export class CouponDisplayComponent implements OnInit {
           (error) => (this.message = error.error.message),
           () => {
             this.updateCouponArray();
-            this.backToDisplay();
           }
         );
       }

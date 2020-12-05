@@ -1,5 +1,4 @@
 <div class="container">
-
   <div class="buttons">
     <ul>
       <li><a [routerLink]="['add']">Add</a></li>
@@ -10,22 +9,35 @@
 
   <router-outlet></router-outlet>
   <div class="search">
-    <input #searchInput type="number" placeholder="Search by ID">
-    <button (click)="searchCompany(searchInput)" >Submit</button>
+    <p class="errors" *ngIf="serverMessage">{{ serverMessage }}</p>
+    <input #searchInput type="number" placeholder="Search by ID" />
+    <button (click)="searchCompany(searchInput)">Submit</button>
   </div>
-  <p class="errors" *ngIf="serverMessage">{{ serverMessage }}</p>
   <div class="search-result">
-    <div class="company" *ngIf="searchedCompany"  >
-      <span style="font-weight: 800;">Name: </span> <span>{{searchedCompany.name}}</span><br/>
-      <span style="font-weight: 800;">Email: </span> <span>{{searchedCompany.email}}</span><br/>
-      <span style="font-weight: 800;">Coupons: </span> <span>{{searchedCompany.coupons.length}}</span><br/>
-      <button (click)="clear()" >Clear</button>
+    <div class="company" *ngIf="searchedCompany">
+      <span style="font-weight: 800">Name: </span>
+      <span>{{ searchedCompany.name }}</span
+      ><br />
+      <span style="font-weight: 800">Email: </span>
+      <span>{{ searchedCompany.email }}</span
+      ><br />
+      <span style="font-weight: 800">Coupons: </span>
+      <span>{{ searchedCompany.coupons.length }}</span
+      ><br />
+      <button (click)="clear()">Clear</button>
     </div>
-    <div class="companies" *ngIf="allCompanies" >
-      <div class="company" *ngFor="let company of allCompanies" >
-        <span style="font-weight: 800;">Name: </span> <span>{{company.name}}</span><br/>
-        <span style="font-weight: 800;">Email: </span> <span>{{company.email}}</span><br/>
-        <span style="font-weight: 800;">Coupons: </span> <span>{{company.coupons.length}}</span><br/>
+    <div class="companies" *ngIf="allCompanies">
+      <div class="company" *ngFor="let company of allCompanies">
+        <span style="font-weight: 800">Name: </span>
+        <span>{{ company.name }}</span
+        ><br />
+        <span style="font-weight: 800">Email: </span>
+        <span>{{ company.email }}</span
+        ><br />
+        <span style="font-weight: 800">Coupons: </span>
+        <span>{{ company.coupons.length }}</span
+        ><br />
       </div>
     </div>
   </div>
+</div>

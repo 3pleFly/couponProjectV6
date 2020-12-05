@@ -10,6 +10,7 @@
 
   <router-outlet></router-outlet>
   <div class="search">
+    <p class="errors" *ngIf="serverMessage">{{ serverMessage }}</p>
     <input #searchInput type="number" placeholder="Search by ID">
     <button (click)="searchCustomer(searchInput)" >Submit</button>
   </div>

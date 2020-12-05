@@ -1,7 +1,4 @@
 <div class="container">
-  <h1>Our Sweet Coupons</h1>
-  <p *ngIf="message" class="errors">{{ message }}</p>
-
   <div class="grid">
     <div
       class="element"
@@ -9,42 +6,45 @@
       (click)="featureCoupon(coupon)"
     >
       <p>{{ coupon.title }}</p>
-      <div class="image" style="background-image: url( {{coupon.image}} )">
+      <div class="image" style="background-image: url( {{ coupon.image }} )">
         <p>Expiry: {{ coupon.endDate | date }}</p>
         <p>Available: {{ coupon.amount }}</p>
         <p>Price: {{ coupon.price }}</p>
       </div>
     </div>
   </div>
-
   <div class="featured" *ngIf="featuredCoupon">
-    <div class="buttons">
-      <button class="back-button" (click)="backToDisplay()">Go back</button>
-      <button class="purchase-button" (click)="purchaseCoupon()">
-        Purchase Coupon
-      </button>
-    </div>
-    <br />
+    <p *ngIf="message" class="errors">{{ message }}</p>
+    <button class="back-button" (click)="backToDisplay()">Close</button>
     <img src="{{ featuredCoupon.image }}" alt="coupon image" />
     <div class="info">
-      <span style="font-weight: 800">Title: </span>
-      <span>{{ featuredCoupon.title }}</span
-      ><br />
-      <span style="font-weight: 800">Description: </span>
-      <span>{{ featuredCoupon.description }}</span
-      ><br />
-      <span style="font-weight: 800">Start-Date: </span>
-      <span>{{ featuredCoupon.startDate }}</span
-      ><br />
-      <span style="font-weight: 800">End-Date: </span>
-      <span>{{ featuredCoupon.endDate }}</span
-      ><br />
-      <span style="font-weight: 800">Amount: </span>
-      <span>{{ featuredCoupon.amount }}</span
-      ><br />
-      <span style="font-weight: 800">Price: </span>
-      <span>{{ featuredCoupon.price }}</span
-      ><br />
+      <span class="highlighted"
+        >Title
+        <p>{{ featuredCoupon.title }}</p>
+      </span>
+      <span class="highlighted"
+        >Description
+        <p>{{ featuredCoupon.description }}</p>
+      </span>
+      <span class="highlighted"
+        >Start Date
+        <p>{{ featuredCoupon.startDate }}</p>
+      </span>
+      <span class="highlighted"
+        >End Date
+        <p>{{ featuredCoupon.endDate }}</p>
+      </span>
+      <span class="highlighted"
+        >Amount
+        <p>{{ featuredCoupon.amount }}</p>
+      </span>
+      <span class="highlighted"
+        >Price
+        <p>{{ featuredCoupon.price }}</p>
+      </span>
     </div>
+    <button class="purchase-button" (click)="purchaseCoupon()">
+      Purchase Coupon
+    </button>
   </div>
 </div>

@@ -93,9 +93,6 @@ button {
       .coupon {
         width: 90%;
         margin: 2% 0;
-        span {
-          font-size: 1.5vw;
-        }
       }
     }
   }
@@ -105,11 +102,6 @@ button {
   .container {
     .coupons {
       display: block;
-      .coupon {
-        span {
-          font-size: 3.5vw;
-        }
-      }
     }
   }
 
@@ -128,6 +120,7 @@ button {
 
   .buttons {
     ul {
+      text-align: center;
       padding: 0.5%;
       display: block;
     }

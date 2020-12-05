@@ -10,6 +10,7 @@ import { AdminService } from 'src/app/services/method/user/admin.service';
 export class ViewCustomersComponent implements OnInit {
   allCustomers: Customer[];
   searchedCustomer: Customer;
+  serverMessage: string;
 
   constructor(private adminService: AdminService) {}
 
@@ -25,12 +26,20 @@ export class ViewCustomersComponent implements OnInit {
 
   searchCustomer(searchInput): void {
     if (searchInput.value) {
-      this.adminService
-        .getOneCustomer(searchInput.value)
-        .subscribe((response) => {
-          this.searchedCustomer = response.t;
-        });
+      this.adminService.getOneCustomer(searchInput.value).subscribe(
+        (response) => (this.searchedCustomer = response.t),
+        (error) => {
+          this.serverMessage = error.error.message;
+          this.timeOutMessage();
+        }
+      );
     }
+  }
+
+  timeOutMessage(): void {
+    setTimeout(() => {
+      this.serverMessage = null;
+    }, 2500);
   }
 
   clear(): void {

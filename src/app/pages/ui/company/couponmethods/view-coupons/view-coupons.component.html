@@ -6,27 +6,28 @@
       <li><a [routerLink]="['update']">Update</a></li>
       <li><a [routerLink]="['delete']">Delete</a></li>
     </ul>
-    <p *ngIf="userMessage">{{ userMessage }}</p>
-    <ul>
-      <select class="option" (change)="filterByCategory($event.target.value)">
-        <option>Choose Category</option>
-        <option *ngFor="let category of allCategories">
-          {{ category.category }}
-        </option>
-      </select>
-      <li>
-        <input
-          #price
-          class="option"
-          style="border: none; border-bottom: 2px solid #a1a1a1"
-          type="number"
-        />
-        <button (click)="filterByPrice(price)">filter</button>
-        <button (click)="removeFilter()">remove filter</button>
-      </li>
-    </ul>
   </div>
   <router-outlet></router-outlet>
+  <p class="errors" *ngIf="userMessage">{{ userMessage }}</p>
+  <ul class="filters">
+    <select class="option" (change)="filterByCategory($event.target.value)">
+      <option>Choose Category</option>
+      <option *ngFor="let category of allCategories">
+        {{ category.category }}
+      </option>
+    </select>
+    <li>
+      <input
+        #price
+        class="option"
+        style="border: none; border-bottom: 2px solid #a1a1a1"
+        type="number"
+        placeholder="Enter max price"
+      />
+      <button (click)="filterByPrice(price)">filter</button>
+      <button (click)="removeFilter()">remove filter</button>
+    </li>
+  </ul>
   <div class="coupons" *ngIf="allCoupons">
     <div class="coupon" *ngFor="let coupon of allCoupons">
       <span style="font-weight: 800">Title: </span>
